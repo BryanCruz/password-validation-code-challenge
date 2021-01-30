@@ -8,6 +8,13 @@ export const isPasswordValid: passwordChecker = (password) => {
 const hasNoSpaces: passwordChecker = (password) =>
   password.split("").every((character) => character !== " ");
 
+const hasNoRepeatedCharacters: passwordChecker = (password) => {
+  const characters = password.split("");
+  const charactersSet = new Set(characters);
+
+  return characters.length === charactersSet.size;
+};
+
 const hasAtLeastNCharacters: passwordCheckerCreator = (n: number) => {
   return (password) => password.length >= n;
 };
@@ -44,6 +51,7 @@ const hasAtLeastNSpecialCharacters: passwordCheckerCreator = (n: number) => {
 
 const checkers: passwordChecker[] = [
   hasNoSpaces,
+  hasNoRepeatedCharacters,
   hasAtLeastNCharacters(9),
   hasAtLeastNDigits(1),
   hasAtLeastNUppercase(1),
