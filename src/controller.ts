@@ -1,5 +1,7 @@
+import { isPasswordValid } from "./service";
+
 export const validatePassword = (password: string): { isValid: boolean } => {
   return {
-    isValid: false,
+    isValid: isPasswordValid(password),
   };
 };
