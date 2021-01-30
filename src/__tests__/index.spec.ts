@@ -2,7 +2,7 @@ const appListenMock = jest.fn((port, callback) => callback());
 const consoleLogSpy = jest.spyOn(console, "log").mockImplementation();
 
 jest.mock("../config", () => ({ apiPort: 3333 }));
-jest.mock("../api/app", () => ({
+jest.mock("../app", () => ({
   listen: appListenMock,
 }));
 
