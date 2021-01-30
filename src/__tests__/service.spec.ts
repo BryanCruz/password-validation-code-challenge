@@ -9,6 +9,7 @@ describe("Service module", () => {
     expect(isPasswordValid("AbTp9!foo")).toBe(false);
     expect(isPasswordValid("AbTp9!foA")).toBe(false);
     expect(isPasswordValid("AbTp9 fok")).toBe(false);
+    expect(isPasswordValid("AbTp9 !fok")).toBe(false);
     expect(isPasswordValid("AbTp9!fok")).toBe(true);
   });
 });
