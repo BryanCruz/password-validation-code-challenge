@@ -38,10 +38,15 @@ const hasAtLeastNLowercase: passwordCheckerCreator = (n: number) => {
   return hasAtLeastNCharactersOfPattern(n, /[A-Z]/);
 };
 
+const hasAtLeastNSpecialCharacters: passwordCheckerCreator = (n: number) => {
+  return hasAtLeastNCharactersOfPattern(n, /[!@#$%^&*()-+]/);
+};
+
 const checkers: passwordChecker[] = [
   hasNoSpaces,
   hasAtLeastNCharacters(9),
   hasAtLeastNDigits(1),
   hasAtLeastNUppercase(1),
   hasAtLeastNLowercase(1),
+  hasAtLeastNSpecialCharacters(1),
 ];
