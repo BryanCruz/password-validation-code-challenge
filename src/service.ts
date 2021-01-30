@@ -26,4 +26,12 @@ const hasAtLeastNCharactersOfPattern: passwordCheckerCreator = (
   };
 };
 
-const checkers: passwordChecker[] = [hasNoSpaces, hasAtLeastNCharacters(9)];
+const hasAtLeastNDigits: passwordCheckerCreator = (n: number) => {
+  return hasAtLeastNCharactersOfPattern(n, /[0-9]/);
+};
+
+const checkers: passwordChecker[] = [
+  hasNoSpaces,
+  hasAtLeastNCharacters(9),
+  hasAtLeastNDigits(1),
+];
