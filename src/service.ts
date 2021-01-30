@@ -7,4 +7,7 @@ export const isPasswordValid: passwordChecker = (password) => {
 const hasNoSpaces: passwordChecker = (password) =>
   password.split("").every((character) => character !== " ");
 
-const checkers: passwordChecker[] = [hasNoSpaces];
+const hasAtLeastNineCharacters: passwordChecker = (password) =>
+  password.length >= 9;
+
+const checkers: passwordChecker[] = [hasNoSpaces, hasAtLeastNineCharacters];
