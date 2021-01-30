@@ -1,3 +1,7 @@
+import config from "./config";
+
+const policy = config.passwordPolicy;
+
 type passwordChecker = (password: string) => boolean;
 type passwordCheckerCreator = (...params: any[]) => passwordChecker;
 
@@ -61,11 +65,11 @@ const hasAtLeastNSpecialCharacters: passwordCheckerCreator = (n: number) => {
 };
 
 const checkers: passwordChecker[] = [
-  hasNoSpaces(true),
-  hasNoRepeatedCharacters(true),
-  hasAtLeastNCharacters(9),
-  hasAtLeastNDigits(1),
-  hasAtLeastNUppercase(1),
-  hasAtLeastNLowercase(1),
-  hasAtLeastNSpecialCharacters(1),
+  hasNoSpaces(policy.hasNoSpaces),
+  hasNoRepeatedCharacters(policy.hasNoRepeatedCharacters),
+  hasAtLeastNCharacters(policy.hasAtLeastNCharacters),
+  hasAtLeastNDigits(policy.hasAtLeastNDigits),
+  hasAtLeastNUppercase(policy.hasAtLeastNUppercase),
+  hasAtLeastNLowercase(policy.hasAtLeastNLowercase),
+  hasAtLeastNSpecialCharacters(policy.hasAtLeastNSpecialCharacters),
 ];
