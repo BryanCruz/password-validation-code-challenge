@@ -15,4 +15,12 @@ describe("Application", () => {
         status: "healthy",
       });
   });
+
+  it("Should use the router module in /password route", async () => {
+    await request(app)
+      .post("/password/check")
+      .send({ password: "some password" })
+      .expect(200)
+      .expect({ valid: false });
+  });
 });
