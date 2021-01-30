@@ -11,7 +11,7 @@ Simple API to validate passwords with a given policy.
 
 - `yarn install` to install dependencies;
 - Check the config file and change any variables that you wish (more info: [#Configuration](#configuration));
-- `yarn start:dev` to start application in dev mode with auto raeload;
+- `yarn start:dev` to start application in dev mode with auto reload;
 - `yarn start` to start application;
 - `yarn test` to execute unit tests.
 
@@ -30,7 +30,9 @@ The application will start by default in port 3000 and the following routes will
 - - Expected request body: `{"password": "thisISpWORD!%10"}`
 - - Expected return: `{"isValid": false}` or `{"isValid": true}`
 
-Example of a request with cURL to check the password `thisISpWORD!%10`: `curl -XPOST -H 'Content-Type: application/json' -d '{"password": "thisISpWORD!%10"}' localhost:3000/password/check`
+Example of a request with cURL to check the password `thisISpWORD!%10`:
+
+`curl -XPOST -H 'Content-Type: application/json' -d '{"password": "thisISpWORD!%10"}' localhost:3000/password/check`
 
 ### Configuration
 
@@ -50,6 +52,18 @@ The config file is `src/config.ts`. You can change the following variables in it
 
 - The default password policy does not allow blank spaces because of the following requirement: "Nota: Espaços em branco não devem ser considerados como caracteres válidos.".
 - Uppercase letters and lowercase letters are treated as different characters. This means that a password that contains both "a" and "A" could be valid.
+
+### About the solution
+
+I created the REST API using the [TypeScript](https://www.typescriptlang.org/) language, the [Express](https://expressjs.com/) framework, [Jest](https://jestjs.io/) for unit testing and functional programming concepts to structure the code.
+
+It has the entrypoint `index.ts` that starts the application, the app initial configuration at `app.ts` and the service routes at `routes.ts`.
+
+The router uses a controller (`controller.ts`) to control the available services, althought we only have one, available at `service.ts`.
+
+The service has the business logic, that is to say, it has the password policy checkers. I created a checker for each requirement specified in the challenge description and let each of them as simple as possible and with customizable params to be changed at any time using the config file.
+
+The config file is available at `config.ts` and its explained [above](#configuration).
 
 ## Authors
 
