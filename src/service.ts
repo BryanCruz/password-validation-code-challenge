@@ -12,4 +12,18 @@ const hasAtLeastNCharacters: passwordCheckerCreator = (n: number) => {
   return (password) => password.length >= n;
 };
 
+const hasAtLeastNCharactersOfPattern: passwordCheckerCreator = (
+  n: number,
+  pattern: RegExp
+) => {
+  return (password: string) => {
+    const characters = password.split("");
+    const charactersOfPattern = characters.filter((character) =>
+      character.match(pattern)
+    );
+
+    return charactersOfPattern.length >= n;
+  };
+};
+
 const checkers: passwordChecker[] = [hasNoSpaces, hasAtLeastNCharacters(9)];
