@@ -1,4 +1,10 @@
 import request from "supertest";
+
+const validatePasswordMockFn = jest.fn();
+jest.mock("../controller", () => ({
+  validatePassword: validatePasswordMockFn,
+}));
+
 import app from "../app";
 
 describe("Application", () => {
@@ -17,10 +23,20 @@ describe("Application", () => {
   });
 
   it("Should use the router module in /password route", async () => {
+    validatePasswordMockFn
+      .mockReturnValueOnce({ isValid: false })
+      .mockReturnValueOnce({ isValid: true });
+
     await request(app)
       .post("/password/check")
       .send({ password: "some password" })
       .expect(200)
-      .expect({ valid: false });
+      .expect({ isValid: false });
+
+    await request(app)
+      .post("/password/check")
+      .send({ password: "some password" })
+      .expect(200)
+      .expect({ isValid: true });
   });
 });
