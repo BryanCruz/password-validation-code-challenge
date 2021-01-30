@@ -4,4 +4,7 @@ export const isPasswordValid: passwordChecker = (password) => {
   return checkers.every((checkerFn) => checkerFn(password));
 };
 
-const checkers: passwordChecker[] = [];
+const hasNoSpaces: passwordChecker = (password) =>
+  password.split("").every((character) => character !== " ");
+
+const checkers: passwordChecker[] = [hasNoSpaces];
