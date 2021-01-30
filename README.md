@@ -65,6 +65,8 @@ The service has the business logic, that is to say, it has the password policy c
 
 The config file is available at `config.ts` and its explained [above](#configuration).
 
+The unit tests are available inside the `__tests__` folder. I made sure that the code coverage was at 100% and focused in making many tests for `isPasswordValid` function of the service.
+
 ## Authors
 
 - [Bryan Bialokur da Cruz](https://github.com/BryanCruz)
