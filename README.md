@@ -1,4 +1,4 @@
-# Itaú Challenge
+# Password Validation Code Challenge
 
 Simple API to validate passwords with a given policy.
 
