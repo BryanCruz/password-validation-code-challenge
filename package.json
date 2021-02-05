@@ -1,7 +1,7 @@
 {
-  "name": "itau-challenge",
+  "name": "password-validation-code-challenge",
   "version": "1.0.0",
-  "description": "Itau Challenge",
+  "description": "Password Validation Code Challenge",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bryancruz/itau-challenge"
+    "url": "https://github.com/bryancruz/password-validation-code-challenge"
   },
   "keywords": [
     "api"
   ],
   "author": "Bryan Bialokur da Cruz",
   "license": "MIT",
-  "homepage": "https://github.com/bryancruz/itau-challenge",
+  "homepage": "https://github.com/bryancruz/password-validation-code-challenge",
   "devDependencies": {
     "@types/express": "^4.17.6",
     "@types/jest": "^24.0.18",
